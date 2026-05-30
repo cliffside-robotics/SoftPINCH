@@ -68,9 +68,7 @@ pip install -r requirements.txt
 **OLD VERSION CONFLICT** - change these to avoid sherpa shutdown erros:
 Follow the path : .venv/lib/python3.11/site-packages/GPyOpt/core/evaluators/batch_local_penalization.py
 
-Do the following change in line 67
-        
-        OLD                                              NEW
+Do the following change in line 67:
 minusL = res.fun[0][0]   ->   minusL = res.fun if isinstance(res.fun, float) else res.fun[0][0]
 
 ## Remarks
