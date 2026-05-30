@@ -32,12 +32,15 @@ The framework combines:
 
 ## Deep Learning Models
 **$N_1$ — LSTM**
+
 Baseline temporal sequence model for biosignal decoding.
 
 **$N_2$ — CNN + LSTM**
+
 Sequential 1D CNN layers extract local temporal and cross-channel features before the LSTM models temporal dependencies.
 
 **$N_3$ — CNN + LSTM + Attention**
+
 Attention mechanism enhances temporal feature weighting and improves discriminative representation learning.
 
 ## Repository Structure
