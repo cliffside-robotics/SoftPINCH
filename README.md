@@ -1,4 +1,3 @@
-<img width="2263" height="986" alt="Hybrid_BCI_overview" src="https://github.com/user-attachments/assets/b9375f94-38ce-4310-a05b-538e85e3a8d8" />
 # SoftPINCH
 Real-time EMG decoding for control of a soft robotic hand exoskeleton using deep learning.
 
@@ -25,7 +24,7 @@ The system integrates:
 
 The framework and step-by-step overview:
 
-<img width="2263" height="986" alt="Hybrid_BCI_overview" src="https://github.com/user-attachments/assets/16d776d6-d6a8-4edb-b676-84264d5d9849" />
+<img width="2263" height="986" alt="Hybrid_BCI_overview" src="https://github.com/user-attachments/assets/b9375f94-38ce-4310-a05b-538e85e3a8d8" />
 
 1) **EMG acquisition**: <br>
 EMG is recorded from the forearm
