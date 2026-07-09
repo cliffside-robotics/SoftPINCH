@@ -5,7 +5,7 @@ Real-time EMG decoding for control of a soft robotic hand exoskeleton using deep
 This work is part of an ongoing master’s thesis project. Certain implementations, refinements, and code structure optimizations are still under development.
 
 ## Overview
-This project presents a EMG biosignal framework for real-time control of a soft hand exoskeleton. The framework investigates the individual contributions of EEG and EMG, as well as their decision-level fusion, for decoding hand motor intentions.
+This project presents a EMG biosignal framework for real-time control of a soft hand exoskeleton. The framework investigates the contributions of EMG signals, for decoding hand motor movements.
 
 Three deep learning architectures are explored:
 
@@ -16,7 +16,7 @@ Three deep learning architectures are explored:
 The system integrates:
 
 * Real-time EMG acquisition
-* EEG/EMG preprocessing pipelines
+* EMG preprocessing pipelines
 * Neural decoding networks
 * Decision-level fusion
 
@@ -28,7 +28,7 @@ The framework combines:
 2) Signal preprocessing
 3) Deep neural decoding
 4) Motion classification
-6) Exoskeleton actuation
+5) Exoskeleton actuation
 
 ## Deep Learning Models
 **$N_1$ — LSTM**
