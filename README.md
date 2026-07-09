@@ -22,15 +22,27 @@ The system integrates:
 
 ## System Architecture
 
-The framework combines:
+The framework and step-by-step overview:
 
-1) Biosignal acquisition
-2) Signal preprocessing
-3) Deep neural decoding
-4) Motion classification
-5) Exoskeleton actuation
+<img width="2263" height="986" alt="Hybrid_BCI_overview" src="https://github.com/user-attachments/assets/16d776d6-d6a8-4edb-b676-84264d5d9849" />
+
+1) **EMG acquisition**: <br>
+EMG is recorded from the forearm
+
+2) **Signal preprocessing**: <br>
+The signal is filtered, trimmed, mitigating outliers, converted into an envelope, normalized, and segmented into periods with corresponding labels for supervised learning framework.
+
+3) **Deep neural decoding and feature representation**: <br>
+Decode processes signal into structured numerical vectors that machine learning algorithms can process. From one of the three networks: $N_1$, $N_2$, or $N_3$.
+
+4) **Motion classification**: <br>
+Forward feature representation through dense layers.
+ 
+5) **Exoskeleton actuation**: <br>
+Forward the classification via a TCP client/server connection to a ESP controller. Which actuates the tendon-driven exoskeleton and provide feedback from the fingertip sensor (MagSense).
 
 ## Deep Learning Models
+
 **$N_1$ — LSTM**
 
 Baseline temporal sequence model for biosignal decoding.
