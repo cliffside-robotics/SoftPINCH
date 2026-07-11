@@ -55,6 +55,36 @@ Sequential 1D CNN layers extract local temporal and cross-channel features befor
 
 Attention mechanism enhances temporal feature weighting and improves discriminative representation learning.
 
+## Model Specifications
+
+To ensure exact reproducibility, the details regarding our model architecture, data preprocessing pipeline, and decision logic are detailed below.
+
+### 1. Data Preprocessing & Windowing
+*   **Input Dimensions:** `(Batch Size, Time Steps, Channels)`
+*   **Windowing Choices:** 
+    *   **RMS Envelope Window Size:** `[250 ms / 500 samples]`
+    *   **RMS Envelope Step Size:** `[25 ms / 50 samples / 90 % overlap]`
+    *   **Hampel Window Size:** `[100 samples]`
+    *   **Hamepl Sigma:** `[2 - Higher value gives more tolerance to outliers]`
+    *   **Trial Segmentation:** `[Extracted from 3.0s intervals within the same trial]`
+*   **Normalization Procedure:** `[e.g., Channel-wise z-score normalization calculated per subject]`
+  
+### 2. Hyperparameter search space
+
+| Hyperparameter | Range | Type |
+| :--- | :--- | :--- |
+| Learning rate | (10⁻⁵, 10⁻³) | Continuous |
+| Weight decay | (10⁻⁵, 10⁻³) | Continuous |
+| Dropout | (0.1, 0.4) | Continuous |
+| Batch size | (16, 32, 64, 128) | Ordinal |
+| Dense ratio | (0.25, 0.5, 0.75, 1.0) | Ordinal |
+| Hidden units | (32, 64, 128, 256) | Ordinal |
+| Filters | (16, 32, 64) | Ordinal |
+| Kernel size | (3, 5, 7, 9, 11) | Ordinal |
+| Activation | (ReLU, ELU) | Choice |
+| Bidirectional | (False, True) | Choice |
+| Layers | (1, 2, 3) | Choice |
+
 ## Repository Structure
 The repository contains the following elements:
   - **data_fusion**:
@@ -80,11 +110,11 @@ py -3.11 -m venv .venv
 source .venv/Scripts/activate
 pip install -r requirements.txt
 
-**OLD VERSION CONFLICT** - change these to avoid sherpa shutdown erros:
-Follow the path : .venv/lib/python3.11/site-packages/GPyOpt/core/evaluators/batch_local_penalization.py
+**OLD VERSION CONFLICT** - change these to avoid sherpa shutdown erros: <br>
+Follow the path : <br> .venv/lib/python3.11/site-packages/GPyOpt/core/evaluators/batch_local_penalization.py
 
-Do the following change in line 67:
-minusL = res.fun[0][0]   ->   minusL = res.fun if isinstance(res.fun, float) else res.fun[0][0]
+Do the following change in line 67: <br>
+minusL = res.fun[0][0]   -> <br>  minusL = res.fun if isinstance(res.fun, float) else res.fun[0][0]
 
 ## Remarks
 Trigno implementation only works in windows, at the time being.
